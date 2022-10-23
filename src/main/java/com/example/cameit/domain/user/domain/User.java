@@ -23,6 +23,10 @@ public class User {
     @Column(nullable = false)
     private String deviceToken;
 
+    public void setDeviceToken(String deviceToken) {
+        this.deviceToken = deviceToken;
+    }
+
     @Builder
     public User(String accountId, String password, String deviceToken) {
         this.accountId = accountId;
