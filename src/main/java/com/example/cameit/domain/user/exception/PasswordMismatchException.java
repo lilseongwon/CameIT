@@ -1,4 +1,4 @@
-package com.example.cameit.domain.user.service;
+package com.example.cameit.domain.user.exception;
 
 import com.example.cameit.global.error.CustomException;
 import com.example.cameit.global.error.ErrorCode;
