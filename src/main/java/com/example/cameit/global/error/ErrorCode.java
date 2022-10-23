@@ -22,7 +22,7 @@ public enum ErrorCode {
 
     REFRESH_TOKEN_NOT_FOUND(404-3, "RefreshToken Not Found"),
 
-    EMAIL_EXIST(409-1, "Email Exist"),
+    USER_EXIST(409-1, "User Exist"),
 
     ALREADY_BREAD_EXIST(409-2, "Already Bread Exist"),
 
