@@ -16,7 +16,7 @@ public enum ErrorCode {
 
     NO_PERMISSION(401-6, "No Permission"),
 
-    AUTH_NOT_FOUND(404-1, "Auth Not Found"),
+    USER_NOT_FOUND(404-1, "User Not Found"),
 
     BREAD_NOT_FOUND(404-2, "Bread Not Found"),
 
