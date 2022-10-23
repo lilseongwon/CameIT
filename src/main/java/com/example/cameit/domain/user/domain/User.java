@@ -15,7 +15,7 @@ public class User {
     private Long id;
 
     @Column(length = 20, nullable = false)
-    private String accountId;
+    private String email;
 
     @Column(length = 20, nullable = false)
     private String password;
@@ -28,8 +28,8 @@ public class User {
     }
 
     @Builder
-    public User(String accountId, String password, String deviceToken) {
-        this.accountId = accountId;
+    public User(String email, String password, String deviceToken) {
+        this.email = email;
         this.password = password;
         this.deviceToken = deviceToken;
     }
