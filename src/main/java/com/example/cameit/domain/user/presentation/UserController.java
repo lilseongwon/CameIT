@@ -4,10 +4,7 @@ import com.example.cameit.domain.auth.presentation.dto.response.TokenResponse;
 import com.example.cameit.domain.user.presentation.dto.request.UserSigninRequest;
 import com.example.cameit.domain.user.presentation.dto.request.UserSignupRequest;
 import com.example.cameit.domain.user.presentation.dto.request.UserUpdatePwRequest;
-import com.example.cameit.domain.user.service.UserSigninService;
-import com.example.cameit.domain.user.service.UserSignupService;
-import com.example.cameit.domain.user.service.UserUpdatePwService;
-import com.example.cameit.domain.user.service.WithdrawlService;
+import com.example.cameit.domain.user.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -21,6 +18,7 @@ public class UserController {
     private final UserSigninService userSigninService;
     private final UserUpdatePwService userUpdatePwService;
     private final WithdrawlService withdrawlService;
+    private final TokenRefreshService tokenRefreshService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
@@ -28,7 +26,7 @@ public class UserController {
         userSignupService.execute(request);
     }
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @PostMapping("/login")
+    @PostMapping("/auth")
     public TokenResponse signIn(@RequestBody UserSigninRequest request) {
         return userSigninService.execute(request);
     }
@@ -41,5 +39,9 @@ public class UserController {
     @DeleteMapping("/")
     public void withdrawl() {
         withdrawlService.execute();
+    }
+    @PatchMapping("/auth")
+    public TokenResponse tokenRefresh(@RequestHeader("X-Refresh-Token") String refreshToken) {
+        return tokenRefreshService.execute(refreshToken);
     }
 }
