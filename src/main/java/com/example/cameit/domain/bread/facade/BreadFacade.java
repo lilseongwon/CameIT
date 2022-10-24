@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 public class BreadFacade {
     private final BreadRepository breadRepository;
 
-    public Bread getFoodById(Long id) {
+    public Bread getBreadById(Long id) {
         return breadRepository.findById(id)
                 .orElseThrow(() -> BreadNotFoundException.EXCEPTION);
     }
