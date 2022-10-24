@@ -25,3 +25,6 @@ jwt:
 redis:
   host: ${REDIS_HOST}
   port: ${REDIS_PORT}
+
+admin:
+  email: ${ADMIN-EMAIL}
