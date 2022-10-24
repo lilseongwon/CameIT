@@ -4,6 +4,7 @@ import com.example.cameit.domain.auth.presentation.dto.response.TokenResponse;
 import com.example.cameit.domain.user.presentation.dto.request.UserSigninRequest;
 import com.example.cameit.domain.user.presentation.dto.request.UserSignupRequest;
 import com.example.cameit.domain.user.presentation.dto.request.UserUpdatePwRequest;
+import com.example.cameit.domain.user.presentation.dto.response.QueryUserInfoResponse;
 import com.example.cameit.domain.user.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -19,6 +20,7 @@ public class UserController {
     private final UserUpdatePwService userUpdatePwService;
     private final WithdrawlService withdrawlService;
     private final TokenRefreshService tokenRefreshService;
+    private final QueryMyinfoService queryMyinfoService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
@@ -43,5 +45,9 @@ public class UserController {
     @PatchMapping("/auth")
     public TokenResponse tokenRefresh(@RequestHeader("X-Refresh-Token") String refreshToken) {
         return tokenRefreshService.execute(refreshToken);
+    }
+    @GetMapping("/")
+    public QueryUserInfoResponse queryMyInfo() {
+        return queryMyinfoService.execute();
     }
 }
