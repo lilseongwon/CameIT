@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
-public class FoodController {
+public class BreadController {
     private final AddBreadService addFoodService;
     private final UpdateBreadService updateBreadService;
     private final DeleteBreadService deleteBreadService;
@@ -30,7 +30,7 @@ public class FoodController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{bread-id}")
-    public void execute(@PathVariable("food-id") Long id) {
+    public void execute(@PathVariable("bread-id") Long id) {
         deleteBreadService.execute(id);
     }
 }
