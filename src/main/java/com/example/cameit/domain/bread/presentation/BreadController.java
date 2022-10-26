@@ -18,6 +18,7 @@ public class BreadController {
     private final DeleteBreadService deleteBreadService;
     private final QueryBreadsByKeywordService queryBreadsByKeywordService;
     private final ModifyBreadStockService modifyBreadStockService;
+    private final QueryAllBreadService queryAllBreadService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
@@ -47,5 +48,10 @@ public class BreadController {
     @GetMapping("/")
     public QueryBreadListResponse queryBreadByKeyword(@RequestParam(value = "keyword")String keyword) {
         return queryBreadsByKeywordService.execute(keyword);
+    }
+
+    @GetMapping("/")
+    public QueryBreadListResponse queryBreadList() {
+        return queryAllBreadService.execute();
     }
 }
