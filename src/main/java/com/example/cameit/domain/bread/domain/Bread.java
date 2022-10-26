@@ -50,11 +50,7 @@ public class Bread {
         this.price = price;
     }
 
-    public void subBread(Integer stock) {
-        this.stock = stock;
-    }
-
-    public void addBread(Integer stock) {
-        this.stock = stock;
+    public void modifyStock(Integer stock) {
+        this.stock += stock;
     }
 }
