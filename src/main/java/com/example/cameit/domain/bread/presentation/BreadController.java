@@ -1,11 +1,9 @@
 package com.example.cameit.domain.bread.presentation;
 
 import com.example.cameit.domain.bread.presentation.dto.request.BreadRequest;
+import com.example.cameit.domain.bread.presentation.dto.request.ModifyStockRequest;
 import com.example.cameit.domain.bread.presentation.dto.response.QueryBreadListResponse;
-import com.example.cameit.domain.bread.service.AddBreadService;
-import com.example.cameit.domain.bread.service.DeleteBreadService;
-import com.example.cameit.domain.bread.service.QueryBreadsByKeywordService;
-import com.example.cameit.domain.bread.service.UpdateBreadService;
+import com.example.cameit.domain.bread.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.annotation.Validated;
@@ -19,6 +17,7 @@ public class BreadController {
     private final UpdateBreadService updateBreadService;
     private final DeleteBreadService deleteBreadService;
     private final QueryBreadsByKeywordService queryBreadsByKeywordService;
+    private final ModifyBreadStockService modifyBreadStockService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
@@ -28,18 +27,25 @@ public class BreadController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PatchMapping("/{bread-id}")
-    public void execute(@PathVariable("bread-id") Long id, @RequestBody @Validated BreadRequest Request) {
+    public void updateFood(@PathVariable("bread-id") Long id, @RequestBody @Validated BreadRequest Request) {
         updateBreadService.execute(id, Request);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @PatchMapping("/stock/{bread-id}")
+    public void modifyStock(@PathVariable("bread-id") Long id,
+                            @RequestBody @Validated ModifyStockRequest request) {
+        modifyBreadStockService.execute(id, request);
+    }
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/{bread-id}")
-    public void execute(@PathVariable("bread-id") Long id) {
+    public void deleteBread(@PathVariable("bread-id") Long id) {
         deleteBreadService.execute(id);
     }
 
     @GetMapping("/")
-    public QueryBreadListResponse queryFoodByKeyword(@RequestParam(value = "keyword")String keyword) {
+    public QueryBreadListResponse queryBreadByKeyword(@RequestParam(value = "keyword")String keyword) {
         return queryBreadsByKeywordService.execute(keyword);
     }
 }
