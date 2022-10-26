@@ -26,6 +26,8 @@ public enum ErrorCode {
 
     ALREADY_BREAD_EXIST(409-2, "Already Bread Exist"),
 
+    BREAD_NOT_ENOUGH(409-3, "Bread Not Enough"),
+
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");
 
     private final int status;
