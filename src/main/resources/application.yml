@@ -1,9 +1,6 @@
-server:
-  port: ${PORT}
-
 spring:
   datasource:
-    url: ${DB-URL}
+    url: ${DB_URL}
     username: ${USERNAME}
     password: ${PASSWORD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,7 +9,7 @@ spring:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
 
   jackson:
     property-naming-strategy: SNAKE_CASE
@@ -27,4 +24,4 @@ redis:
   port: ${REDIS_PORT}
 
 admin:
-  email: ${ADMIN-EMAIL}
+  email: ${ADMIN}
