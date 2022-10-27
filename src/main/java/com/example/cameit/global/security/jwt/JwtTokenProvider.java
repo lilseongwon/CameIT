@@ -37,7 +37,7 @@ public class JwtTokenProvider {
 
     private String generateToken(String email, String type, Long exp) {
         return Jwts.builder()
-                .signWith(SignatureAlgorithm.ES256, jwtProperties.getSecret())
+                .signWith(SignatureAlgorithm.HS256, jwtProperties.getSecret())
                 .setSubject(email)
                 .setHeaderParam("typ", type)
                 .setIssuedAt(new Date())
