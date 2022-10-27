@@ -27,7 +27,7 @@ public class UserController {
     public void signUp(@RequestBody @Validated UserSignupRequest request) {
         userSignupService.execute(request);
     }
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @PostMapping("/auth")
     public TokenResponse signIn(@RequestBody UserSigninRequest request) {
         return userSigninService.execute(request);
