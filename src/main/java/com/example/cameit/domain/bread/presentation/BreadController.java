@@ -2,6 +2,7 @@ package com.example.cameit.domain.bread.presentation;
 
 import com.example.cameit.domain.bread.presentation.dto.request.BreadRequest;
 import com.example.cameit.domain.bread.presentation.dto.request.ModifyStockRequest;
+import com.example.cameit.domain.bread.presentation.dto.response.QueryBreadInfoResponse;
 import com.example.cameit.domain.bread.presentation.dto.response.QueryBreadListResponse;
 import com.example.cameit.domain.bread.service.*;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class BreadController {
     private final QueryBreadsByKeywordService queryBreadsByKeywordService;
     private final ModifyBreadStockService modifyBreadStockService;
     private final QueryAllBreadService queryAllBreadService;
+    private final QueryBreadInfoService queryBreadInfoService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/")
@@ -45,7 +47,7 @@ public class BreadController {
         deleteBreadService.execute(id);
     }
 
-    @GetMapping("/")
+    @GetMapping("/search")
     public QueryBreadListResponse queryBreadByKeyword(@RequestParam(value = "keyword")String keyword) {
         return queryBreadsByKeywordService.execute(keyword);
     }
@@ -53,5 +55,9 @@ public class BreadController {
     @GetMapping("/")
     public QueryBreadListResponse queryBreadList() {
         return queryAllBreadService.execute();
+    }
+    @GetMapping("/{bread-id}")
+    public QueryBreadInfoResponse queryBreadInfo(@PathVariable("bread-id") Long id) {
+        return queryBreadInfoService.execute(id);
     }
 }
