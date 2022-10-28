@@ -36,6 +36,7 @@ public class SecurityConfig {
                 .authorizeRequests()
 
                 .anyRequest().authenticated()
+                .antMatchers("/**").permitAll()
 
                 .and()
                 .apply(new FilterConfig(jwtTokenResolver, objectMapper))
