@@ -51,6 +51,6 @@ public class Bread {
     }
 
     public void modifyStock(Integer stock) {
-        this.stock += stock;
+        this.stock =+ stock;
     }
 }
