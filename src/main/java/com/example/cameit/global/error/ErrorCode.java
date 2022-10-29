@@ -6,27 +6,27 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum ErrorCode {
-    PASSWORD_MISMATCH(401-1, "Password Mismatch"),
+    PASSWORD_MISMATCH(401, "Password Mismatch"),
 
-    EXPIRED_JWT(401-2, "Expired Jwt"),
-    SIGNATURE_JWT(401-3, "Signature Jwt"),
-    INVALID_JWT(401-4, "Invalid Jwt"),
+    EXPIRED_JWT(401, "Expired Jwt"),
+    SIGNATURE_JWT(401, "Signature Jwt"),
+    INVALID_JWT(401, "Invalid Jwt"),
 
-    INVALID_REFRESH_TOKEN(401-5, "Invalid Refresh Token"),
+    INVALID_REFRESH_TOKEN(401, "Invalid Refresh Token"),
 
-    NO_PERMISSION(401-6, "No Permission"),
+    NO_PERMISSION(401, "No Permission"),
 
-    USER_NOT_FOUND(404-1, "User Not Found"),
+    USER_NOT_FOUND(404, "User Not Found"),
 
-    BREAD_NOT_FOUND(404-2, "Bread Not Found"),
+    BREAD_NOT_FOUND(404, "Bread Not Found"),
 
-    REFRESH_TOKEN_NOT_FOUND(404-3, "RefreshToken Not Found"),
+    REFRESH_TOKEN_NOT_FOUND(404, "RefreshToken Not Found"),
 
-    USER_EXIST(409-1, "User Exist"),
+    USER_EXIST(409, "User Exist"),
 
-    ALREADY_BREAD_EXIST(409-2, "Already Bread Exist"),
+    ALREADY_BREAD_EXIST(409, "Already Bread Exist"),
 
-    BREAD_NOT_ENOUGH(409-3, "Bread Not Enough"),
+    BREAD_NOT_ENOUGH(409, "Bread Not Enough"),
 
     INTERNAL_SERVER_ERROR(500, "Internal Server Error");
 
