@@ -24,7 +24,7 @@ public class AddBreadService {
                 Bread.builder()
                         .name(request.getName())
                         .category(request.getCategory())
-                        .explain(request.getExplain())
+                        .info(request.getInfo())
                         .imageUrl(request.getImage_url())
                         .price(request.getPrice())
                         .build());

@@ -17,6 +17,6 @@ public class UpdateBreadService {
         userFacade.checkPermission();
         Bread bread = breadFacade.getBreadById(id);
         bread.updateBread(request.getName(), request.getCategory(),
-                request.getExplain(), request.getImage_url(), request.getPrice());
+                request.getInfo(), request.getImage_url(), request.getPrice());
     }
 }

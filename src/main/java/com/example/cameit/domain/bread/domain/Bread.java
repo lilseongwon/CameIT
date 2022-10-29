@@ -21,7 +21,7 @@ public class Bread {
     private Category category;
 
     @Column(nullable = false)
-    private String explain;
+    private String info;
 
     @Column(nullable = false)
     private String imageUrl;
@@ -33,19 +33,19 @@ public class Bread {
     private Integer stock;
 
     @Builder
-    public Bread(String name, Category category, String explain, String imageUrl, Integer price) {
+    public Bread(String name, Category category, String info, String imageUrl, Integer price) {
         this.name = name;
         this.category = category;
-        this.explain = explain;
+        this.info = info;
         this.imageUrl = imageUrl;
         this.price = price;
         this.stock = 0;
     }
 
-    public void updateBread(String name, Category category, String explain, String imageUrl, Integer price) {
+    public void updateBread(String name, Category category, String info, String imageUrl, Integer price) {
         this.name = name;
         this.category = category;
-        this.explain = explain;
+        this.info = info;
         this.imageUrl = imageUrl;
         this.price = price;
     }

@@ -12,7 +12,7 @@ public class QueryBreadInfoResponse {
     private final Integer stock;
     private final Integer price;
     private final String imageUrl;
-    private final String explane;
+    private final String info;
 
 
 }

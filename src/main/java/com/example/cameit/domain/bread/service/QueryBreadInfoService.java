@@ -19,7 +19,7 @@ public class QueryBreadInfoService {
         return QueryBreadInfoResponse.builder()
                 .name(bread.getName())
                 .category(bread.getCategory())
-                .explane(bread.getExplain())
+                .info(bread.getInfo())
                 .imageUrl(bread.getImageUrl())
                 .price(bread.getPrice())
                 .stock(bread.getStock())
