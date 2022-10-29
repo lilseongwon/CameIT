@@ -1,4 +1,4 @@
-package com.example.cameit.domain.notice.firebase;
+package com.example.cameit.global.firebase;
 
 import com.google.auth.oauth2.GoogleCredentials;
 import com.google.firebase.FirebaseApp;
