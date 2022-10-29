@@ -18,6 +18,7 @@ public class BreadRequest {
     private Category category;
 
     @Size(min = 1, max= 500, message = "info는 최대 500자 입니다.")
+    @NotNull(message = "info는 Null을 허용하지 않습니다.")
     private String info;
 
     @NotNull(message = "price는 Null을 허용하지 않습니다.")
