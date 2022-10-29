@@ -9,6 +9,6 @@ import javax.validation.constraints.NotNull;
 @NoArgsConstructor
 public class ModifyStockRequest {
 
-    @NotNull(message = "modifyStock은 Null을 허용하지 않습니다.")
+    @NotNull(message = "modify_stock은 Null을 허용하지 않습니다.")
     private Integer modifyStock;
 }
